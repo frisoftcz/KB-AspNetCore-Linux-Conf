@@ -1,0 +1,22 @@
+# Configure ASP.NET web application as a service
+# Replace [appname] with application home directory
+# Replace [APP_NAME] with application name
+# Copy file to /etc/systemd/system
+# Enable and Start service
+#   systemctl enable kestrel-[APP_NAME].service
+#   systemctl start kestrel-[APP_NAME].service
+# Disable service
+#   systemctl disable kestrel-[APP_NAME].service
+
+[Unit]
+Description=[APP_NAME]
+[Service]
+WorkingDirectory=/home/dotnet/[appname]
+ExecStart=/home/dotnet/[appname]/[APP_NAME]
+Restart=always
+RestartSec=10
+SyslogIdentifier=dotnet-[APP_NAME]
+User=www-data
+Environment=ASPNETCORE_ENVIRONMENT=Production
+[Install]
+WantedBy=multi-user.target

@@ -7,5 +7,6 @@ AspNetCoreWebApp.conf
 kestrel-AppApache.service
   - konfigurace AspNet Core Web aplikace jako služby v systému Linux
   - kopíruje se do adresáře /etc/systemd/system
-  - tímto způsobem můžeme vyvíjet více aplikací, vždy je jedna služba enambled a ostatní disabled
+  - tímto způsobem můžeme vyvíjet více aplikací, každá aplikace má svůj vlastní konfigurační soubor s jiným jménem
+  - vždy je jedna služba enabled a ostatní disabled (je třeba zajistit, aby na portu 5000 komunikovala vždy jen jedna služba)
   
